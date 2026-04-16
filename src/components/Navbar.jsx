@@ -5,8 +5,7 @@ export default function Navbar() {
     <div className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          <h1 className="logo">Ecommerce</h1>
-          <small> ShopHub</small>
+                  ShopHub
         </Link>
         <div className="navbar-links">
           <Link to="/" className="navbar-link">

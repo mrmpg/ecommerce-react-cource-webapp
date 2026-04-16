@@ -4,11 +4,13 @@ import { useState } from "react";
 import Home from "./Pages/Home";
 import CheckOut from "./Pages/CheckOut";
 import Auth from "./Pages/Auth";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
       <div className="app">
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
