@@ -13,9 +13,9 @@ export default function Navbar() {
           <Link to="/" className="navbar-link">
             Home
           </Link>
-          <Link to="/auth" className="navbar-link">
+          {/* <Link to="/auth" className="navbar-link">
             Login
-          </Link>
+          </Link> */}
           <Link to="/checkout" className="navbar-link">
             Cart
           </Link>

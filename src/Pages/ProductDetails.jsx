@@ -1,11 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProductById } from "../data/products";
+import { useCart } from "../context/CartContext";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
+  const { cartItems, addToCart } = useCart();
 
   useEffect(() => {
     // Simulate fetching product details from an API
@@ -22,6 +24,8 @@ export default function ProductDetails() {
   if (!product) {
     return <h1> Loading...</h1>;
   }
+  const productInCart = cartItems.find((item) => item.id === product.id);
+  const productQuantity = productInCart ? `(${productInCart.quantity})` : "";
 
   return (
     <div className="page">
@@ -36,7 +40,12 @@ export default function ProductDetails() {
               Price: ${product.price.toFixed(2)}
             </p>
             <p className="product-detail-description">{product.description}</p>
-            <button className="btn btn-primary">Add to Cart</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => addToCart(product.id)}
+            >
+              Add to Cart {productQuantity}
+            </button>
           </div>
         </div>
       </div>
